@@ -1,0 +1,42 @@
+{
+    "name": "timelocker",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+       "build": "yarn workspace packages/react-app build --max-old-space-size=12288",
+      "chain": "yarn workspace packages/hardhat chain",
+      "fork": "yarn workspace packages/hardhat fork",
+      "node": "yarn workspace packages/hardhat chain",
+      "test": "yarn workspace packages/hardhat test",
+      "start": "yarn workspace packages/react-app start",
+      "compile": "yarn workspace packages/hardhat compile",
+      "deploy": "yarn workspace packages/hardhat deploy",
+      "verify": "yarn workspace packages/hardhat etherscan-verify", 
+      "watch": "yarn workspace packages/hardhat watch",
+      "accounts": "yarn workspace packages/hardhat accounts",
+      "balance": "yarn workspace packages/hardhat balance",
+      "send": "yarn workspace packages/hardhat send",
+      "ipfs": "yarn workspace packages/react-app ipfs",
+      "surge": "yarn workspace packages/react-app surge",
+      "s3": "yarn workspace packages/react-app s3",
+      "ship": "yarn workspace packages/react-app ship",
+      "generate": "yarn workspace packages/hardhat generate",
+      "account": "yarn workspace packages/hardhat account",
+      "mineContractAddress": "cd packages/hardhat && npx hardhat mineContractAddress",
+      "wallet": "cd packages/hardhat && npx hardhat wallet",
+      "fundedwallet": "cd packages/hardhat && npx hardhat fundedwallet",
+      "flatten": "cd packages/hardhat && npx hardhat flatten",
+      "clean": "cd packages/hardhat && npx hardhat clean"
+    },
+    "workspaces": {
+      "packages": [
+        "packages/*"
+      ],
+      "nohoist": [
+        "**/hardhat",
+        "**/hardhat/**"
+      ]
+    },
+    "dependencies": {}
+  }
+  
