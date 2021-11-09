@@ -8,7 +8,7 @@ contract TimeLockerFactory {
     mapping(address => address[]) lockers;
     TimeLocker[] public deployedLockers;
 
-    function getWallets(address user) 
+    function getLockers(address user) 
         public
         view
         returns(address[] memory)
