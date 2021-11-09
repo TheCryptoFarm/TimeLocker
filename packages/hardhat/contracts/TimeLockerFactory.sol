@@ -5,30 +5,30 @@ pragma solidity ^0.6.12;
 import "./TimeLocker.sol";
 
 contract TimeLockerFactory { 
-    mapping(address => address[]) wallets;
+    mapping(address => address[]) lockers;
+    TimeLocker[] public deployedLockers;
 
     function getWallets(address user) 
         public
         view
-        returns(address[])
+        returns(address[] memory)
     {
-        return wallets[user];
+        return lockers[user];
     }
-    function deployTimeLocker(address owner, uint256 unlockAt)
-        payable
+    function deployTimeLocker(uint256 unlockAt)
         public
-        returns(address wallet)
+        returns(address lockerAddress)
     {
-        wallet = new TimeLocker(msg.sender, owner, unlockAt);
-        wallets[msg.sender].push(wallet);
-        if (msg.sender != owner){
-            wallets[owner].push(wallet);
-        }
-        wallet.transfer(msg.value);
-        LockerCreated(wallet, msg.sender, owner, now, unlockAt);
+        TimeLocker locker = new TimeLocker(unlockAt);
+        lockerAddress = address(locker);
+        lockers[msg.sender].push(lockerAddress);
+        LockerCreated(lockerAddress, msg.sender, now, unlockAt);
     }
-    function () public {
+    fallback() external payable {
         revert();
     }
-    event LockerCreated(address wallet, address from, address to, uint256 createdAt, uint256 unlockAt);
+    receive() external payable {
+        revert();
+    }
+    event LockerCreated(address locker, address from, uint256 createdAt, uint256 unlockAt);
 }
