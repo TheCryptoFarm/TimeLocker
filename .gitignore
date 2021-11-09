@@ -6,7 +6,7 @@ hardhat/artifacts*
 hardhat/deployments
 react-app/src/contracts/*
 /hardhat/cache*
-hardhat/*.txt
+**/hardhat/*.txt
 
 tenderly.yaml
 
