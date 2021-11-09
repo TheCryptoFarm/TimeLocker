@@ -2,10 +2,9 @@
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 **/node_modules
-hardhat/artifacts*
-hardhat/deployments
-react-app/src/contracts/*
-/hardhat/cache*
+**/hardhat/artifacts*
+**/hardhat/deployments
+**/hardhat/cache*
 **/hardhat/*.txt
 
 tenderly.yaml
